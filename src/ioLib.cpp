@@ -10,7 +10,7 @@ extern char STRING_TERMINATION = '\0';
 
 struct File
 {
-    unsigned char buffer[BUFFER_SIZE];
+    unsigned char buffer[BUFFER_SIZE] = {NULL};
     FILE*         cfile               = NULL;
     unsigned int  position            = 0;
     unsigned int  correctBufferValues = 0;
@@ -742,7 +742,7 @@ char* strFind (const char* str, const char* substr, size_t maxSymbolsToCheck)
     if (str == NULL || substr == NULL)
         return NULL;
 
-    size_t substrLength = strLength(substr);
+    size_t substrLength     = strLength(substr);
 
     int    start            = -1;
     size_t currentlyMatched = 0;
@@ -830,8 +830,8 @@ size_t strNumOfOccurrences(const char* str, char symbol, size_t maxSymbolsToChec
 int isPunctuationMark(unsigned char ch)
 {
     return (ch >= ' ' && ch <= '@') ||
-        (ch >= '[' && ch <= '`') ||
-        (ch >= '{' && ch <= 191);
+           (ch >= '[' && ch <= '`') ||
+           (ch >= '{' && ch <= 191);
 }
 
 //-----------------------------------------------------------------------------
@@ -844,7 +844,7 @@ int isPunctuationMark(unsigned char ch)
 int isLatinLetter(unsigned char ch)
 {
     return (ch >= (unsigned char)'a' && ch <= (unsigned char)'z') || 
-        (ch >= (unsigned char)'A' && ch <= (unsigned char)'Z');
+           (ch >= (unsigned char)'A' && ch <= (unsigned char)'Z');
 }
 
 //-----------------------------------------------------------------------------
@@ -857,7 +857,7 @@ int isLatinLetter(unsigned char ch)
 int isCyrilicLetter(unsigned char ch)
 {
     return (ch >= (unsigned char)'à' && ch <= (unsigned char)'ÿ') || 
-        (ch >= (unsigned char)'À' && ch <= (unsigned char)'ß');
+           (ch >= (unsigned char)'À' && ch <= (unsigned char)'ß');
 }
 
 //-----------------------------------------------------------------------------

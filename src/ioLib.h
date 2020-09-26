@@ -1,5 +1,7 @@
 #pragma once
 
+#include <stdlib.h>
+
 constexpr size_t BUFFER_SIZE          = 512;
 constexpr int    FILE_END             = -1;
 constexpr int    UPDATE_BUFFER_DENIED = -1;
