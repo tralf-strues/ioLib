@@ -6,7 +6,7 @@
 #include <math.h>
 #include <assert.h>
 
-extern char STRING_TERMINATION = '\0';
+char STRING_TERMINATION = '\0';
 
 struct File
 {
@@ -120,7 +120,7 @@ size_t readBufferFromFile(File* file, size_t typeSize, size_t count, void* buffe
         return FILE_END;
     
     size_t result = fread(buffer, typeSize, count, file->cfile);
-    return result == EOF ? FILE_END : result;
+    return result != count ? FILE_END : result;
 }
 
 //-----------------------------------------------------------------------------
@@ -143,6 +143,27 @@ size_t writeBufferToFile(File* file, size_t typeSize, size_t count, void* buffer
 
     size_t result = fwrite(buffer, typeSize, count, file->cfile);
     return result == EOF ? FILE_END : result;
+}
+
+//-----------------------------------------------------------------------------
+//! Copies bytesCount bytes from source to destination.  
+//!
+//! @param [out] destination  pointer to the place to copy to
+//! @param [in]  source       pointer to the place to copy from
+//! @param [in]  bytesCount   number of bytes to copy from source to 
+//!                           destination
+//!
+//! @return copy of destination.
+//-----------------------------------------------------------------------------
+void* memoryCopy(void* destination, const void* source, size_t bytesCount)
+{
+    assert(destination != NULL);
+    assert(source      != NULL);
+
+    for (size_t k = 0; k < bytesCount; k++)
+        *((char*)destination + k) = *((char*)source + k);
+
+    return destination;
 }
 
 //-----------------------------------------------------------------------------

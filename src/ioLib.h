@@ -14,6 +14,7 @@ void     setStringTermination  (char terminationSymbol);
 char     getStringTermination  ();
 size_t   readBufferFromFile    (File* file, size_t typeSize, size_t count, void* buffer);
 size_t   writeBufferToFile     (File* file, size_t typeSize, size_t count, void* buffer);
+void*    memoryCopy            (void* destination, const void* source, size_t bytesCount);
 int      nextChar              (File* file);
 char*    nextLine              (File* file, char* line, size_t maxLength);
 int      writeChar             (File* file, char ch);
