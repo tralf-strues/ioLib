@@ -869,16 +869,16 @@ int isLatinLetter(unsigned char ch)
 }
 
 //-----------------------------------------------------------------------------
-//! Tells whether or not ch is a cyrilic letter.
+//! Tells whether or not ch is a cyrillic letter.
 //!
 //! @param [in]  ch
 //!
-//! @return 1 if ch is a cyrilic letter and 0 otherwise.
+//! @return 1 if ch is a cyrillic letter and 0 otherwise.
 //-----------------------------------------------------------------------------
-int isCyrilicLetter(unsigned char ch)
+int isCyrillicLetter(unsigned char ch)
 {
-    return (ch >= (unsigned char)'à' && ch <= (unsigned char)'ÿ') || 
-           (ch >= (unsigned char)'À' && ch <= (unsigned char)'ß');
+    return (ch >= (unsigned char)'ï¿½' && ch <= (unsigned char)'ï¿½') || 
+           (ch >= (unsigned char)'ï¿½' && ch <= (unsigned char)'ï¿½');
 }
 
 //-----------------------------------------------------------------------------
@@ -894,8 +894,8 @@ unsigned char toLowerCase(unsigned char ch)
     if (ch >= 'A' && ch <= 'Z')
         return 'a' + ch - 'A';
 
-    if (ch >= (unsigned char)'À' && ch <= (unsigned char)'ß')
-        return (unsigned char)'à' + ch - (unsigned char)'À';
+    if (ch >= (unsigned char)'ï¿½' && ch <= (unsigned char)'ï¿½')
+        return (unsigned char)'ï¿½' + ch - (unsigned char)'ï¿½';
 
     return ch;
 }

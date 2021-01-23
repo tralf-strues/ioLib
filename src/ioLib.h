@@ -42,7 +42,7 @@ size_t   strNumOfOccurrences   (const char* str, char symbol, size_t maxSymbolsT
 
 int      isPunctuationMark     (unsigned char ch);
 int      isLatinLetter         (unsigned char ch);
-int      isCyrilicLetter       (unsigned char ch);
+int      isCyrillicLetter      (unsigned char ch);
 
 unsigned 
 char     toLowerCase           (unsigned char ch);
