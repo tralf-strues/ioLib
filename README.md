@@ -1,8 +1,8 @@
-This is my attempt to understand how some standard C i/o functions work. Basically I've written my own very basic versions of `printf`, `scanf` and some other functions.  
+This is my attempt to understand how some standard i/o functions work in C. Basically, I've implemented my own very basic versions of `printf`, `scanf` and some other functions.  
 
 # Functionality
 ## File*
-Basically all iolib functions work with `File`, instead of C `FILE` (though `File` actually has `FILE` in it 😄). Many input and output functions use a fixed-size (`BUFFER_SIZE`, which is set to 512 by default and when) buffer in order not to read from or write to a file each symbol individually.  
+Basically all iolib functions work with `File`, instead of C `FILE` (though `File` actually has `FILE` in it 😄). Many input and output functions use a fixed-size (`BUFFER_SIZE`, which is set to 512 by default) buffer in order not to read from or write to a file each symbol individually.  
 
 In order to open/close a file use `openFile`/`closeFile` - simple as that 🐨.  
 
